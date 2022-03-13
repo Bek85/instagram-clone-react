@@ -1,5 +1,4 @@
-import React from "react";
-import { useNavbarStyles } from "../../styles";
+import { useNavbarStyles } from '../../styles';
 
 function NotificationTooltip() {
   useNavbarStyles();

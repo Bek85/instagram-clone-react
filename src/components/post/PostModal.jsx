@@ -1,5 +1,4 @@
-import React from "react";
-import { usePostModalStyles } from "../../styles";
+import { usePostModalStyles } from '../../styles';
 
 function PostModal() {
   usePostModalStyles();

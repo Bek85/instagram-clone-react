@@ -1,5 +1,4 @@
-import React from "react";
-import { useProfilePictureStyles } from "../../styles";
+import { useProfilePictureStyles } from '../../styles';
 
 function ProfilePicture() {
   useProfilePictureStyles();

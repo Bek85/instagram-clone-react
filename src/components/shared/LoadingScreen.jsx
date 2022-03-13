@@ -1,5 +1,4 @@
-import React from "react";
-import { useLoadingScreenStyles } from "../../styles";
+import { useLoadingScreenStyles } from '../../styles';
 
 function LoadingScreen() {
   useLoadingScreenStyles();

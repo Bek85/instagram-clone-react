@@ -1,5 +1,4 @@
-import React from "react";
-import { useExploreGridStyles } from "../../styles";
+import { useExploreGridStyles } from '../../styles';
 
 function ExploreGrid() {
   useExploreGridStyles();

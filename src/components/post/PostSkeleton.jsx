@@ -1,5 +1,4 @@
-import React from "react";
-import { usePostSkeletonStyles } from "../../styles";
+import { usePostSkeletonStyles } from '../../styles';
 
 export function PostSkeleton() {
   usePostSkeletonStyles();

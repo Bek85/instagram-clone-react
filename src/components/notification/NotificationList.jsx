@@ -1,5 +1,4 @@
-import React from "react";
-import { useNotificationListStyles } from "../../styles";
+import { useNotificationListStyles } from '../../styles';
 
 function NotificationList() {
   useNotificationListStyles();

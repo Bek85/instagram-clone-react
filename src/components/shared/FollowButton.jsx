@@ -1,5 +1,4 @@
-import React from "react";
-import { useFollowButtonStyles } from "../../styles";
+import { useFollowButtonStyles } from '../../styles';
 
 function FollowButton() {
   useFollowButtonStyles();

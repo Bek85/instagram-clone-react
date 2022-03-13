@@ -1,4 +1,5 @@
-import { makeStyles, withStyles, Tooltip } from '@mui/styles';
+import { makeStyles, withStyles } from '@mui/styles';
+import { Tooltip } from '@mui/material';
 import IconSheet from './images/icon-sheet.png';
 import IconSheet2 from './images/icon-sheet-2.png';
 

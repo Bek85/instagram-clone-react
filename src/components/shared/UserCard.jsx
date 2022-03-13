@@ -1,5 +1,4 @@
-import React from "react";
-import { useUserCardStyles } from "../../styles";
+import { useUserCardStyles } from '../../styles';
 
 function UserCard() {
   useUserCardStyles();

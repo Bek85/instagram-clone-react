@@ -1,5 +1,4 @@
-import React from "react";
-import { useFollowSuggestionsStyles } from "../../styles";
+import { useFollowSuggestionsStyles } from '../../styles';
 
 function FollowSuggestions() {
   useFollowSuggestionsStyles();

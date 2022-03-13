@@ -1,5 +1,4 @@
-import React from "react";
-import { useLoginPageStyles } from "../styles";
+import { useLoginPageStyles } from '../styles';
 
 function LoginPage() {
   useLoginPageStyles();

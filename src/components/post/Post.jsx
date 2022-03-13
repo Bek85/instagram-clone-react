@@ -1,5 +1,4 @@
-import React from "react";
-import { usePostStyles } from "../../styles";
+import { usePostStyles } from '../../styles';
 
 function Post() {
   usePostStyles();

@@ -1,5 +1,4 @@
-import React from "react";
-import { useProfileTabsStyles } from "../../styles";
+import { useProfileTabsStyles } from '../../styles';
 
 function ProfileTabs() {
   useProfileTabsStyles();

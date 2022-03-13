@@ -1,5 +1,4 @@
-import React from "react";
-import { useFeedSideSuggestionsStyles } from "../../styles";
+import { useFeedSideSuggestionsStyles } from '../../styles';
 
 function FeedSideSuggestions() {
   useFeedSideSuggestionsStyles();

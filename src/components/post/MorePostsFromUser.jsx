@@ -1,5 +1,4 @@
-import React from "react";
-import { useMorePostsFromUserStyles } from "../../styles";
+import { useMorePostsFromUserStyles } from '../../styles';
 
 function MorePostsFromUser() {
   useMorePostsFromUserStyles();

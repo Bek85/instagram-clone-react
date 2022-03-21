@@ -7,10 +7,10 @@ import IconSheet2 from './images/icon-sheet-2.png';
 export const useFeedPageStyles = makeStyles((theme) => ({
   container: {
     display: 'grid',
-    // gridAutoFlow: "column",
+    // gridAutoFlow: 'column',
     gridTemplateColumns: 'minmax(auto, 600px) 300px',
-    gridGap: 35,
-    [theme.breakpoints.down('sm')]: {
+    gap: 35,
+    [theme.breakpoints.down('md')]: {
       gridTemplateColumns: 'minmax(auto, 600px)',
       justifyContent: 'center',
     },
@@ -20,7 +20,7 @@ export const useFeedPageStyles = makeStyles((theme) => ({
   },
   sidebarContainer: {
     display: 'grid',
-    margin: '0px 28px 24px',
+    // margin: '0px 28px 24px',
     justifyContent: 'center',
     gridTemplateColumns: 'minmax(auto, 300px)',
   },

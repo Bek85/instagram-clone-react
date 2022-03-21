@@ -15,6 +15,7 @@ import {
   Divider,
   Hidden,
   Typography,
+  TextField,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -125,7 +126,34 @@ function FeedPost({ post }) {
 }
 
 function Comment() {
-  return <>Comment</>;
+  const classes = useFeedPostStyles();
+  const [content, setContent] = useState('');
+  return (
+    <div className={classes.commentContainer}>
+      <TextField
+        className={classes.textField}
+        fullWidth
+        placeholder="Add a comment..."
+        multiline
+        maxRows={2}
+        value={content}
+        onChange={(evt) => setContent(evt.target.value)}
+        inputProps={{
+          classes: {
+            root: classes.root,
+            underline: classes.underline,
+          },
+        }}
+      />
+      <Button
+        color="primary"
+        className={classes.commentButton}
+        disabled={!content.trim()}
+      >
+        Post
+      </Button>
+    </div>
+  );
 }
 
 function LikeButton() {

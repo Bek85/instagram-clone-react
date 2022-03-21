@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useUserCardStyles } from '../../styles';
 import { defaultUser } from '@/data';
 
-function UserCard({ user = defaultUser }) {
-  const classes = useUserCardStyles();
+function UserCard({ user = defaultUser, avatarSize = 44 }) {
+  const classes = useUserCardStyles({ avatarSize });
   const { username, profile_image } = user;
 
   return (

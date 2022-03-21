@@ -6,6 +6,8 @@ import {
   ShareIcon,
   UnlikeIcon,
   LikeIcon,
+  SaveIcon,
+  RemoveIcon,
 } from '@/icons';
 import {
   Button,
@@ -38,12 +40,14 @@ function FeedPost({ post }) {
         {/* Feed Post Buttons */}
 
         <div className={classes.postButtonsWrapper}>
-          <LikeButton />
-          <Link to={`/p/${id}`}>
-            <CommentIcon />
-          </Link>
-          <ShareIcon />
-          <SaveButton />
+          <div className={classes.postButtons}>
+            <LikeButton />
+            <Link to={`/p/${id}`}>
+              <CommentIcon />
+            </Link>
+            <ShareIcon />
+            <SaveButton />
+          </div>
         </div>
         <Typography className={classes.like} variant="subtitle2">
           <span>{likes <= 1 ? `${likes} like` : `${likes} likes`}</span>
@@ -143,7 +147,20 @@ function LikeButton() {
 }
 
 function SaveButton() {
-  return <>SaveButton</>;
+  const classes = useFeedPostStyles();
+  const [saved, setSaved] = useState(false);
+  const Icon = saved ? RemoveIcon : SaveIcon;
+  const onClick = saved ? handleRemove : handleSave;
+
+  function handleSave() {
+    setSaved(true);
+  }
+
+  function handleRemove() {
+    setSaved(false);
+  }
+
+  return <Icon className={classes.saveIcon} onClick={onClick} />;
 }
 
 export default FeedPost;

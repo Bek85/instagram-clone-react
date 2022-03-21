@@ -5,9 +5,16 @@ import FeedSideSuggestions from '@/components/feed/FeedSideSuggestions';
 import { getDefaultPost } from '../data';
 import FeedPost from '@/components/feed/FeedPost';
 import { Hidden } from '@mui/material';
+import LoadingScreen from '@/components/shared/LoadingScreen';
+import { useState } from 'react';
+import { LoadingLargeIcon } from '../icons';
 
 function FeedPage() {
   const classes = useFeedPageStyles();
+  const [isEndOfFeed, setIsEndOfFeed] = useState(false);
+  let loading = false;
+
+  if (loading) return <LoadingScreen />;
 
   return (
     <Layout>
@@ -26,6 +33,7 @@ function FeedPage() {
             </div>
           </div>
         </Hidden>
+        {!isEndOfFeed && <LoadingLargeIcon />}
       </div>
     </Layout>
   );

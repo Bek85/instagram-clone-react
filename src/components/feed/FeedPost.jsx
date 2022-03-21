@@ -50,71 +50,73 @@ function FeedPost({ post }) {
             <SaveButton />
           </div>
         </div>
-        <Typography className={classes.like} variant="subtitle2">
-          <span>{likes <= 1 ? `${likes} like` : `${likes} likes`}</span>
-        </Typography>
-        <div className={showCaption ? classes.expanded : classes.collapsed}>
-          <Link to={`/${user.username}`}>
-            <Typography
-              variant="subtitle2"
-              component="span"
-              className={classes.username}
-            >
-              {user.username}
-            </Typography>
-          </Link>
-          {showCaption ? (
-            <Typography
-              variant="body2"
-              component="span"
-              dangerouslySetInnerHTML={{ __html: caption }}
-            />
-          ) : (
-            <div className={classes.captionWrapper}>
-              <HTMLEllipsis
-                unsafeHTML={caption}
-                className={classes.caption}
-                maxLine="0"
-                ellipsis="..."
-                basedOn="letters"
-              />
-              <Button
-                className={classes.moreButton}
-                onClick={() => setShowCaption(true)}
-              >
-                more
-              </Button>
-            </div>
-          )}
-        </div>
-        <Link to={`/p/${id}`}>
-          <Typography
-            className={classes.commentLink}
-            variant="body2"
-            component="div"
-          >
-            View all {comments.length} comments
+        <div style={{ padding: '0 3%' }}>
+          <Typography className={classes.like} variant="subtitle2">
+            <span>{likes <= 1 ? `${likes} like` : `${likes} likes`}</span>
           </Typography>
-        </Link>
-        {comments.map((comment) => (
-          <div key={comment.id}>
-            <Link to={`/${comment.user.username}`}>
+          <div className={showCaption ? classes.expanded : classes.collapsed}>
+            <Link to={`/${user.username}`}>
               <Typography
                 variant="subtitle2"
                 component="span"
-                className={classes.commentUsername}
+                className={classes.username}
               >
-                {comment.user.username}
-              </Typography>{' '}
-              <Typography variant="body2" component="span">
-                {comment.content}
+                {user.username}
               </Typography>
             </Link>
+            {showCaption ? (
+              <Typography
+                variant="body2"
+                component="span"
+                dangerouslySetInnerHTML={{ __html: caption }}
+              />
+            ) : (
+              <div className={classes.captionWrapper}>
+                <HTMLEllipsis
+                  unsafeHTML={caption}
+                  className={classes.caption}
+                  maxLine="0"
+                  ellipsis="..."
+                  basedOn="letters"
+                />
+                <Button
+                  className={classes.moreButton}
+                  onClick={() => setShowCaption(true)}
+                >
+                  more
+                </Button>
+              </div>
+            )}
           </div>
-        ))}
-        <Typography color="textSecondary" className={classes.datePosted}>
-          5 DAYS AGO
-        </Typography>
+          <Link to={`/p/${id}`}>
+            <Typography
+              className={classes.commentLink}
+              variant="body2"
+              component="div"
+            >
+              View all {comments.length} comments
+            </Typography>
+          </Link>
+          {comments.map((comment) => (
+            <div key={comment.id}>
+              <Link to={`/${comment.user.username}`}>
+                <Typography
+                  variant="subtitle2"
+                  component="span"
+                  className={classes.commentUsername}
+                >
+                  {comment.user.username}
+                </Typography>{' '}
+                <Typography variant="body2" component="span">
+                  {comment.content}
+                </Typography>
+              </Link>
+            </div>
+          ))}
+          <Typography color="textSecondary" className={classes.datePosted}>
+            5 DAYS AGO
+          </Typography>
+        </div>
 
         <Hidden xsDown>
           <Divider />

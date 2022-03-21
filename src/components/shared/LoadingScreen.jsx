@@ -1,9 +1,16 @@
-import { useLoadingScreenStyles } from '../../styles';
+import { useLoadingScreenStyles } from '@/styles';
+import { LogoLoadingIcon } from '@/icons';
 
 function LoadingScreen() {
-  useLoadingScreenStyles();
+  const classes = useLoadingScreenStyles();
 
-  return <div>LoadingScreen</div>;
+  return (
+    <section className={classes.section}>
+      <span>
+        <LogoLoadingIcon />
+      </span>
+    </section>
+  );
 }
 
 export default LoadingScreen;

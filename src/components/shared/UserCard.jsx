@@ -1,8 +1,9 @@
 import { Avatar, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useUserCardStyles } from '../../styles';
+import { defaultUser } from '@/data';
 
-function UserCard({ user }) {
+function UserCard({ user = defaultUser }) {
   const classes = useUserCardStyles();
   const { username, profile_image } = user;
 

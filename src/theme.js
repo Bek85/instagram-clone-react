@@ -1,11 +1,6 @@
 import { createTheme } from '@mui/material';
 
 const theme = createTheme({
-  props: {
-    MuiButtonBase: {
-      disableRipple: true,
-    },
-  },
   typography: {
     useNextVariants: true,
     fontFamily:
@@ -26,6 +21,11 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
     MuiInputLabel: {
       styleOverrides: {
         root: {

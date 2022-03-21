@@ -21,6 +21,13 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: `
+        a {
+          text-decoration: none;
+        }
+      `,
+    },
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,

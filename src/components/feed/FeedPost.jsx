@@ -11,7 +11,6 @@ import {
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
-import { CommentsDisabled } from '@mui/icons-material';
 
 function FeedPost({ post }) {
   const classes = useFeedPostStyles();
@@ -23,7 +22,7 @@ function FeedPost({ post }) {
       <article className={classes.article}>
         {/* Feed Post Header */}
         <div className={classes.postHeader}>
-          <UserCard />
+          <UserCard user={user} />
           <MoreIcon className={collapseClasses.moreIcon} />
         </div>
         {/* Feed Post Image */}

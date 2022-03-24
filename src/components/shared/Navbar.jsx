@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   AppBar,
   Avatar,
@@ -65,6 +65,7 @@ function Search() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState('');
+  const navigate = useNavigate();
 
   const hasResults = Boolean(query) && results.length > 0;
 
@@ -87,7 +88,15 @@ function Search() {
           hasResults && (
             <Grid className={classes.resultContainer} container>
               {results.map((result) => (
-                <Grid key={result.id} item className={classes.resultLink}>
+                <Grid
+                  onClick={() => {
+                    navigate(`/${result.username}`);
+                    handleClearInput();
+                  }}
+                  key={result.id}
+                  item
+                  className={classes.resultLink}
+                >
                   <div className={classes.resultWrapper}>
                     <div className={classes.avatarWrapper}>
                       <Avatar src={result.profile_image} alt="user avatar" />

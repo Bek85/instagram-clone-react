@@ -1,5 +1,7 @@
+import Layout from '@/components/shared/Layout';
+
 function ExplorePage() {
-  return <div>ExplorePage</div>;
+  return <Layout>ExplorePage</Layout>;
 }
 
 export default ExplorePage;

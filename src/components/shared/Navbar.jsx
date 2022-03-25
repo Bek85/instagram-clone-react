@@ -25,6 +25,7 @@ import {
 import { defaultCurrentUser } from '@/data';
 import { getDefaultUser } from '@/data';
 import NotificationTooltip from '@/components/notification/NotificationTooltip';
+import NotificationList from '@/components/notification/NotificationList';
 
 function Navbar({ minimalNavbar }) {
   const classes = useNavbarStyles();
@@ -158,6 +159,7 @@ function Links({ path }) {
 
   return (
     <div className={classes.linksContainer}>
+      {showList && <NotificationList />}
       <div className={classes.linksWrapper}>
         <Hidden smDown>
           <AddIcon />

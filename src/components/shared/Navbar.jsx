@@ -157,9 +157,13 @@ function Links({ path }) {
     setShowTooltip(false);
   }
 
+  function handleHideList() {
+    setShowList(false);
+  }
+
   return (
     <div className={classes.linksContainer}>
-      {showList && <NotificationList />}
+      {showList && <NotificationList handleHideList={handleHideList} />}
       <div className={classes.linksWrapper}>
         <Hidden smDown>
           <AddIcon />

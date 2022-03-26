@@ -1,4 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useNProgress } from '@tanem/react-nprogress';
 import {
   AppBar,
   Avatar,
@@ -29,24 +30,31 @@ import NotificationList from '@/components/notification/NotificationList';
 
 function Navbar({ minimalNavbar }) {
   const classes = useNavbarStyles();
+  const [isLoadingPage, setIsLoadingPage] = useState(true);
   let location = useLocation();
   const path = location.pathname;
 
-  return (
-    <AppBar className={classes.appBar}>
-      <section className={classes.section}>
-        <Logo />
-        {!minimalNavbar && (
-          <>
-            <Hidden smDown>
-              <Search />
-            </Hidden>
+  useEffect(() => {
+    setIsLoadingPage(false);
+  }, [path]);
 
-            <Links path={path} />
-          </>
-        )}
-      </section>
-    </AppBar>
+  return (
+    <>
+      <Progress isAnimating={isLoadingPage} />
+      <AppBar className={classes.appBar}>
+        <section className={classes.section}>
+          <Logo />
+          {!minimalNavbar && (
+            <>
+              <Hidden smDown>
+                <Search />
+              </Hidden>
+              <Links path={path} />
+            </>
+          )}
+        </section>
+      </AppBar>
+    </>
   );
 }
 
@@ -198,6 +206,33 @@ function Links({ path }) {
             className={classes.profileImage}
           />
         </Link>
+      </div>
+    </div>
+  );
+}
+
+function Progress({ isAnimating }) {
+  const classes = useNavbarStyles();
+  const { animationDuration, isFinished, progress } = useNProgress({
+    isAnimating,
+  });
+
+  return (
+    <div
+      className={classes.progressContainer}
+      style={{
+        opacity: isFinished ? 0 : 1,
+        transition: `opacity ${animationDuration}ms linear`,
+      }}
+    >
+      <div
+        className={classes.progressBar}
+        style={{
+          marginLeft: `${(-1 + progress) * 100}%`,
+          transition: `margin-left ${animationDuration}ms linear`,
+        }}
+      >
+        <div className={classes.progressBackground}></div>
       </div>
     </div>
   );

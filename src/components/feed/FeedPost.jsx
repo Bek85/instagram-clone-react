@@ -21,10 +21,12 @@ import {
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
+import OptionsDialog from '@/components/shared/OptionsDialog';
 
 function FeedPost({ post, index }) {
   const classes = useFeedPostStyles();
   const [showCaption, setShowCaption] = useState(false);
+  const [showOptionsDialog, setShowOptionsDialog] = useState(false);
   const { media, id, likes, user, caption, comments } = post;
   const showFollowSuggestions = index === 1;
 
@@ -37,7 +39,10 @@ function FeedPost({ post, index }) {
         {/* Feed Post Header */}
         <div className={classes.postHeader}>
           <UserCard user={user} />
-          <MoreIcon className={collapseClasses.moreIcon} />
+          <MoreIcon
+            onClick={() => setShowOptionsDialog(true)}
+            className={collapseClasses.moreIcon}
+          />
         </div>
         {/* Feed Post Image */}
         <div>
@@ -129,6 +134,9 @@ function FeedPost({ post, index }) {
         </Hidden>
       </article>
       {showFollowSuggestions && <FollowSuggestions />}
+      {showOptionsDialog && (
+        <OptionsDialog onClose={() => setShowOptionsDialog(false)} />
+      )}
     </>
   );
 }

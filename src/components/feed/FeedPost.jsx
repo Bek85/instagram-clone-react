@@ -1,5 +1,6 @@
 import { useFeedPostStyles } from '../../styles';
 import UserCard from '@/components/shared/UserCard';
+import FollowSuggestions from '@/components/shared/FollowSuggestions';
 import {
   MoreIcon,
   CommentIcon,
@@ -21,14 +22,18 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 
-function FeedPost({ post }) {
+function FeedPost({ post, index }) {
   const classes = useFeedPostStyles();
   const [showCaption, setShowCaption] = useState(false);
   const { media, id, likes, user, caption, comments } = post;
+  const showFollowSuggestions = index === 1;
 
   return (
     <>
-      <article className={classes.article}>
+      <article
+        className={classes.article}
+        style={{ marginBottom: showFollowSuggestions && 30 }}
+      >
         {/* Feed Post Header */}
         <div className={classes.postHeader}>
           <UserCard user={user} />
@@ -123,6 +128,7 @@ function FeedPost({ post }) {
           <Comment />
         </Hidden>
       </article>
+      {showFollowSuggestions && <FollowSuggestions />}
     </>
   );
 }

@@ -1,7 +1,7 @@
-import { useExploreSuggestionsStyles } from '../../styles';
+import { useExploreSuggestionsStyles } from '@/styles';
 
 function ExploreSuggestions() {
-  useExploreSuggestionsStyles();
+  const classes = useExploreSuggestionsStyles();
 
   return <div>ExploreSuggestions</div>;
 }

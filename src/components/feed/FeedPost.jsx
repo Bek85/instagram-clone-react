@@ -1,4 +1,6 @@
-import { useFeedPostStyles } from '../../styles';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useFeedPostStyles } from '@/styles';
 import UserCard from '@/components/shared/UserCard';
 import FollowSuggestions from '@/components/shared/FollowSuggestions';
 import {
@@ -18,8 +20,6 @@ import {
   Typography,
   TextField,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import OptionsDialog from '@/components/shared/OptionsDialog';
 

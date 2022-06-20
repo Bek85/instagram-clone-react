@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useNProgress } from '@tanem/react-nprogress';
 import {
   AppBar,
@@ -76,7 +76,7 @@ function Search() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState('');
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const hasResults = Boolean(query) && results.length > 0;
 
@@ -101,7 +101,7 @@ function Search() {
               {results.map((result) => (
                 <Grid
                   onClick={() => {
-                    navigate(`/${result.username}`);
+                    history.push(`/${result.username}`);
                     handleClearInput();
                   }}
                   key={result.id}

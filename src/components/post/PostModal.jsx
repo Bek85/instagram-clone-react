@@ -1,9 +1,9 @@
-import { usePostModalStyles } from '../../styles';
+import { usePostModalStyles } from '@/styles';
 
 function PostModal() {
-  usePostModalStyles();
+  const classes = usePostModalStyles();
 
-  return <div>PostModal</div>;
+  return <>PostModal</>;
 }
 
 export default PostModal;

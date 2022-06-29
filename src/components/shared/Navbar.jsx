@@ -73,7 +73,7 @@ function Logo() {
 
 function Search() {
   const classes = useNavbarStyles();
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState('');
   const history = useHistory();

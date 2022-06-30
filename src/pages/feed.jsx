@@ -7,6 +7,7 @@ import { Hidden } from '@mui/material';
 import LoadingScreen from '@/components/shared/LoadingScreen';
 import { lazy, Suspense, useState } from 'react';
 import { LoadingLargeIcon } from '../icons';
+import FeedPostSkeleton from '@/components/feed/FeedPostSkeleton';
 const FeedPost = lazy(() => import('@/components/feed/FeedPost'));
 
 function FeedPage() {
@@ -22,7 +23,7 @@ function FeedPage() {
         <div>
           {Array.from({ length: 5 }, () => getDefaultPost()).map(
             (post, index) => (
-              <Suspense key={post.id} fallback={<>Loading...</>}>
+              <Suspense key={post.id} fallback={<FeedPostSkeleton />}>
                 <FeedPost key={post.id} post={post} index={index} />
               </Suspense>
             )

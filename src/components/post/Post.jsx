@@ -23,11 +23,19 @@ import {
 
 import OptionsDialog from '@/components/shared/OptionsDialog';
 import { defaultPost } from '@/data';
+import PostSkeleton from './PostSkeleton';
 
 function Post() {
   const classes = usePostStyles();
   const [showOptionsDialog, setShowOptionsDialog] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { media, id, likes, user, caption, comments } = defaultPost;
+
+  setTimeout(() => setLoading(false), 2000);
+
+  if (loading) {
+    return <PostSkeleton />;
+  }
 
   return (
     <div className={classes.postContainer}>
